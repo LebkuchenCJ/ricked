@@ -1,0 +1,27 @@
+.searchElement {
+  background-color: #a2ce47;
+  border-radius: 50px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* @media only screen and (max-width: 600px) {
+  .searchElement {
+    width: 100%;
+  }
+} */
+
+.searchElement > button {
+  background: transparent;
+  border: none;
+  display: flex;
+  justify-content: center;
+}
+
+.searchElement__input {
+  color: #000;
+  background-color: rgba(162, 206, 71, 0.2);
+  border-style: none;
+  margin-left: 5px;
+  width: 100%;
+}

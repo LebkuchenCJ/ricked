@@ -1,0 +1,31 @@
+.listItem > img {
+  width: 60px;
+  height: 60px;
+  margin-right: 5px;
+}
+
+.listItem {
+  display: flex;
+  border-bottom: 1px solid #e4e4e4;
+  text-decoration: none;
+  align-items: center;
+  margin: 0 5px;
+}
+
+.listItem > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.listItem span {
+  font-weight: bolder;
+}
+.listItem > p {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+}
+.listItem > h4 {
+  flex-grow: 2;
+}
