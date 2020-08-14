@@ -1,9 +1,10 @@
 import React from "react";
+import episodesSrc from "../../assets/film.svg";
 
 function Episodes(href, alt) {
   return (
     <a href={href} alt={alt}>
-      <img src="x" alt="Episode Icon" />
+      <img src={episodesSrc} alt="Episode Icon" />
       <span>Episodes</span>
     </a>
   );

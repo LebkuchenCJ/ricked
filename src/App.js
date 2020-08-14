@@ -9,9 +9,20 @@ import ListItemImg from "./components/main/ListItemImg";
 import ListItemText from "./components/main/ListItemText";
 import Menu from "./components/main/Menu";
 import Planets from "./components/main/Planets";
-/* import { fetchCharacter } from "./api/rickedApi"; */
+import { fetchCharacter } from "./api/rickedApi";
+import ListItemPlanet from "./components/main/ListItemPlanet";
 
 function App() {
+  const [characters, setCharaters] = React.useState(null);
+  useEffect(() => {
+    async function fetchData() {
+      const characterIndex = await fetchCharacter();
+      setCharaters(characterIndex);
+    }
+    fetchData();
+  }, []);
+  console.log(characters);
+
   const rick = {
     name: "Rick Sanchez",
     id: 1,
@@ -19,8 +30,6 @@ function App() {
     href: "none",
     img: "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
   };
-
-  const characters = [rick];
 
   return (
     <div className="app">
@@ -30,17 +39,13 @@ function App() {
       </header>
       <main className="app__main">
         <List>
-          {characters?.map((character) => {
-            return (
-              <ListItem href={character.href} key={character.id}>
-                <ListItemImg src={character.img} />
-                <ListItemText
-                  primary={character.name}
-                  secondery={character.planet}
-                />
-              </ListItem>
-            );
-          })}
+          {characters?.map((character) => (
+            <ListItem href={character.href} key={character.id}>
+              <ListItemImg src={character.img} />
+              <ListItemText primary={character.name} />
+              <ListItemPlanet secondary={character.planet} />
+            </ListItem>
+          ))}
         </List>
       </main>
       <footer className="app__footer">

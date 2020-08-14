@@ -1,12 +1,7 @@
 import React from "react";
 
-function ListItemText({ primary, secondary }) {
-  return (
-    <div>
-      <h4>{primary}</h4>
-      <span>{secondary}</span>
-    </div>
-  );
+function ListItemText({ primary }) {
+  return <h4>{primary}</h4>;
 }
 
 export default ListItemText;

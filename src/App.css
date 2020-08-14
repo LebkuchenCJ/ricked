@@ -41,7 +41,7 @@ a {
   display: flex;
   flex-direction: grid;
   place-content: center;
-  /* overflow-y: scroll; */
+  overflow-y: scroll;
 }
 .app__footer {
   background-color: #000;
