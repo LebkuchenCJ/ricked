@@ -21,15 +21,6 @@ function App() {
     }
     fetchData();
   }, []);
-  console.log(characters);
-
-  const rick = {
-    name: "Rick Sanchez",
-    id: 1,
-    planet: "Earth",
-    href: "none",
-    img: "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
-  };
 
   return (
     <div className="app">
