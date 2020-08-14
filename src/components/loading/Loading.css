@@ -1,0 +1,12 @@
+.portalScreen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #35c9dd;
+  font-weight: bolder;
+  font-size: 2rem;
+}
+body {
+  background-color: #000;
+}
