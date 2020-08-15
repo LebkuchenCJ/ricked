@@ -10,6 +10,14 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: linear-gradient(
+    to right top,
+    #02afc5,
+    #49c0d2,
+    #6dd1e0,
+    #8ce2ee,
+    #a9f3fd
+  );
 }
 
 code {
