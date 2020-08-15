@@ -15,6 +15,11 @@ linear-gradient(to left bottom, #a2ce47, #8ac546, #71bd46, #57b347, #39aa48);
   border-radius: 5px;
 }
 
+@font-face {
+  font-family: "schwifty";
+  src: url("../src/assets/get_schwifty.ttf");
+}
+
 .app {
   height: 100vh;
   width: 60vw;
@@ -45,12 +50,16 @@ a {
   display: grid;
   place-items: center;
   font-size: 1.5rem;
+  font-family: "schwifty", sans-serif;
   padding-bottom: 15px;
   border-radius: 10px 10px 20px 20px;
 }
 
 .app__header > h1 {
   margin: 5px 0;
+  -webkit-text-stroke: 0.5px #000;
+  text-shadow: -2px 0 rgb(162, 206, 71), 0 2px rgb(162, 206, 71),
+    2px 0 rgb(162, 206, 71), 0 -2px rgb(162, 206, 71);
 }
 
 .app__main {

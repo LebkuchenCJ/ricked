@@ -47,7 +47,7 @@ function App() {
   return (
     <div className="app">
       <header className="app__header">
-        <h1>Get Ricked</h1>
+        <h1>GET RICKED</h1>
         {/* <input
         ></input> */}
         <Input /* value={query} onChange={handleChange} */ />
