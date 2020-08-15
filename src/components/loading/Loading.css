@@ -6,7 +6,24 @@
   color: #35c9dd;
   font-weight: bolder;
   font-size: 2rem;
+  position: relative;
 }
 body {
   background-color: #000;
+}
+
+.portalScreen > :nth-child(2) {
+  animation: loadingImg 2s;
+  position: absolute;
+  width: 15%;
+}
+
+@keyframes loadingImg {
+  from {
+    width: 1vw;
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
