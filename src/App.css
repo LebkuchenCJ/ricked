@@ -27,6 +27,13 @@ linear-gradient(to left bottom, #a2ce47, #8ac546, #71bd46, #57b347, #39aa48);
   border-radius: 15px;
 }
 
+@media only screen and (max-width: 600px) {
+  .app {
+    width: 100vw;
+    height: 100vh;
+  }
+}
+
 a {
   text-decoration: none;
   color: #e5e5e5;
