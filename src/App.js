@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import Episodes from "./components/main/Episodes";
 import Home from "./components/main/Home";
@@ -9,24 +9,48 @@ import ListItemImg from "./components/main/ListItemImg";
 import ListItemText from "./components/main/ListItemText";
 import Menu from "./components/main/Menu";
 import Planets from "./components/main/Planets";
-import { fetchCharacter } from "./api/rickedApi";
+import { fetchCharacter /* fetchCharacterName */ } from "./api/rickedApi";
 import ListItemPlanet from "./components/main/ListItemPlanet";
+import LoadingScreen from "./components/loading/Loading";
 
 function App() {
-  const [characters, setCharaters] = React.useState(null);
+  const [characters, setCharaters] = useState(null);
+  const [loading, setLoading] = useState(false);
+  // const [query, setQuery] = useState("");
+
   useEffect(() => {
-    async function fetchData() {
-      const characterIndex = await fetchCharacter();
-      setCharaters(characterIndex);
-    }
-    fetchData();
+    setTimeout(() => {
+      async function fetchData() {
+        setLoading(false);
+        const characterIndex = await fetchCharacter();
+        setCharaters(characterIndex);
+        setLoading(true);
+      }
+      fetchData();
+    }, 2000);
   }, []);
 
+  /* let timeOutId;
+
+  function handleChange(input) {
+    setQuery(input);
+    clearTimeout(timeOutId);
+    timeOutId = setTimeout(async () => {
+      const results = await fetchCharacterName(query);
+      setCharaters(results);
+    }, 300);
+  } */
+
+  if (loading === false) {
+    return <LoadingScreen />;
+  }
   return (
     <div className="app">
       <header className="app__header">
         <h1>Get Ricked</h1>
-        <Input />
+        {/* <input
+        ></input> */}
+        <Input /* value={query} onChange={handleChange} */ />
       </header>
       <main className="app__main">
         <List>
