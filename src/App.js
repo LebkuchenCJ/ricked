@@ -19,13 +19,15 @@ function App() {
   // const [query, setQuery] = useState("");
 
   useEffect(() => {
-    async function fetchData() {
-      setLoading(false);
-      const characterIndex = await fetchCharacter();
-      setCharaters(characterIndex);
-      setLoading(true);
-    }
-    fetchData();
+    setTimeout(() => {
+      async function fetchData() {
+        setLoading(false);
+        const characterIndex = await fetchCharacter();
+        setCharaters(characterIndex);
+        setLoading(true);
+      }
+      fetchData();
+    }, 2000);
   }, []);
 
   /* let timeOutId;
@@ -39,7 +41,7 @@ function App() {
     }, 300);
   } */
 
-  if (loading) {
+  if (loading === false) {
     return <LoadingScreen />;
   }
   return (
