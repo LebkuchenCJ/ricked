@@ -1,5 +1,8 @@
 export async function fetchCharacter() {
   const response = await fetch(`https://rickandmortyapi.com/api/character`);
+  if (!response.ok) {
+    throw new Error(response);
+  }
   const result = await response.json();
 
   const characters = result.results.map((character) => ({
@@ -17,6 +20,9 @@ export async function fetchCharacterName(query) {
   const response = await fetch(
     `https://rickandmortyapi.com/api/character/?name=${query}`
   );
+  if (!response.ok) {
+    throw new Error("Character doesn´t exist");
+  }
   const result = await response.json();
 
   const characters = result.results.map((character) => ({
