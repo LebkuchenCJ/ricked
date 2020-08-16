@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
+import "./components/main/Input.css";
 import Episodes from "./components/main/Episodes";
 import Home from "./components/main/Home";
-import Input from "./components/main/Input";
+//import Input from "./components/main/Input";
 import List from "./components/main/List";
 import ListItem from "./components/main/ListItem";
 import ListItemImg from "./components/main/ListItemImg";
@@ -12,6 +13,7 @@ import Planets from "./components/main/Planets";
 import { fetchCharacter, fetchCharacterName } from "./api/rickedApi";
 import ListItemPlanet from "./components/main/ListItemPlanet";
 import LoadingScreen from "./components/loading/Loading";
+import searchIconSrc from "./assets/search-24px.svg";
 
 function App() {
   const [characters, setCharaters] = useState(null);
@@ -48,11 +50,19 @@ function App() {
     <div className="app">
       <header className="app__header">
         <h1>GET RICKED</h1>
-        <input
-          value={query}
-          onChange={(event) => handleChange(event.target.value)}
-        ></input>
-        <Input /* value={query} onChange={handleChange} */ />
+        <div className="searchElement">
+          <input
+            value={query}
+            onChange={(event) => handleChange(event.target.value)}
+            className="searchElement__input"
+            placeholder="Search"
+            type="texts"
+          />
+          <button>
+            <img src={searchIconSrc} alt="Search Icon" />
+          </button>
+        </div>
+        {/* <Input value={query} onChange={handleChange} /> */}
       </header>
       <main className="app__main">
         <List>
