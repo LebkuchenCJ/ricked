@@ -9,14 +9,14 @@ import ListItemImg from "./components/main/ListItemImg";
 import ListItemText from "./components/main/ListItemText";
 import Menu from "./components/main/Menu";
 import Planets from "./components/main/Planets";
-import { fetchCharacter /* fetchCharacterName */ } from "./api/rickedApi";
+import { fetchCharacter, fetchCharacterName } from "./api/rickedApi";
 import ListItemPlanet from "./components/main/ListItemPlanet";
 import LoadingScreen from "./components/loading/Loading";
 
 function App() {
   const [characters, setCharaters] = useState(null);
   const [loading, setLoading] = useState(false);
-  // const [query, setQuery] = useState("");
+  const [query, setQuery] = useState("");
 
   useEffect(() => {
     setTimeout(() => {
@@ -30,7 +30,7 @@ function App() {
     }, 2000);
   }, []);
 
-  /* let timeOutId;
+  let timeOutId;
 
   function handleChange(input) {
     setQuery(input);
@@ -39,7 +39,7 @@ function App() {
       const results = await fetchCharacterName(query);
       setCharaters(results);
     }, 300);
-  } */
+  }
 
   if (loading === false) {
     return <LoadingScreen />;
@@ -48,8 +48,10 @@ function App() {
     <div className="app">
       <header className="app__header">
         <h1>GET RICKED</h1>
-        {/* <input
-        ></input> */}
+        <input
+          value={query}
+          onChange={(event) => handleChange(event.target.value)}
+        ></input>
         <Input /* value={query} onChange={handleChange} */ />
       </header>
       <main className="app__main">
