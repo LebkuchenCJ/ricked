@@ -2,15 +2,18 @@ import React from "react";
 import portalSrc from "../../assets/portal.gif";
 import mortySrc from "../../assets/morty.png";
 import styled from "@emotion/styled";
-
 import schwiftSrc from "../../assets/get_schwifty.ttf";
 
 const Container = styled.div`
 
-@font-face {
-          font-family: "schwifty";
-        src: url("${schwiftSrc}");
-        }
+  @font-face {
+    font-family: "schwifty";
+    src: url("${schwiftSrc}");
+  }
+ 
+  body {
+    margin: 0px;
+  }
 
   height: 100vh;
   width: 100vw;
@@ -34,6 +37,9 @@ const Container = styled.div`
   font-size: 2rem;
   position: relative;
 
+  img:nth-of-type(1) {
+    width:100%;
+  }
   img:nth-of-type(2) {
     animation: loadingImg 2s;
     position: absolute;
