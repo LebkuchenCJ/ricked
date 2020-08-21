@@ -15,6 +15,7 @@ import ListItemPlanet from "./components/main/ListItemPlanet";
 import LoadingScreen from "./components/loading/Loading";
 import searchIconSrc from "./assets/search-24px.svg";
 import AppHeader from "./components/main/AppHeader";
+import AppMain from "./components/main/AppMain";
 
 function App() {
   const [characters, setCharaters] = useState(null);
@@ -65,7 +66,7 @@ function App() {
         </div>
         {/* <Input value={query} onChange={handleChange} /> */}
       </AppHeader>
-      <main className="app__main">
+      <AppMain>
         <List>
           {characters?.map((character) => (
             <ListItem href={character.href} key={character.id}>
@@ -75,7 +76,7 @@ function App() {
             </ListItem>
           ))}
         </List>
-      </main>
+      </AppMain>
       <footer className="app__footer">
         <Menu>
           <Home></Home>

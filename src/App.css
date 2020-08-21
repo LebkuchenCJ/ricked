@@ -39,13 +39,6 @@ linear-gradient(to left bottom, #a2ce47, #8ac546, #71bd46, #57b347, #39aa48);
   }
 }
 
-.app__main {
-  color: #e5e5e5;
-  display: flex;
-  flex-direction: grid;
-  place-content: center;
-  overflow-y: scroll;
-}
 .app__footer {
   background-color: #000;
   display: grid;
