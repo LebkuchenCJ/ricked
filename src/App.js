@@ -16,6 +16,7 @@ import LoadingScreen from "./components/loading/Loading";
 import searchIconSrc from "./assets/search-24px.svg";
 import AppHeader from "./components/main/AppHeader";
 import AppMain from "./components/main/AppMain";
+import AppFooter from "./components/main/AppFooter";
 
 function App() {
   const [characters, setCharaters] = useState(null);
@@ -77,13 +78,13 @@ function App() {
           ))}
         </List>
       </AppMain>
-      <footer className="app__footer">
+      <AppFooter>
         <Menu>
           <Home></Home>
           <Planets></Planets>
           <Episodes></Episodes>
         </Menu>
-      </footer>
+      </AppFooter>
     </div>
   );
 }
