@@ -14,8 +14,6 @@ function Planets(props) {
 
   const { data, status } = useQuery("planets", fetchLocations);
 
-  console.log(data);
-
   let timeOutId;
 
   function handleChange(input) {
@@ -26,7 +24,6 @@ function Planets(props) {
       setLocation(results);
     }, 300);
   }
-  console.log(locations);
   return (
     <>
       <AppHeader>
