@@ -5,7 +5,7 @@ const Container = styled.div`
   justify-content: space-around;
   width: 100%;
 
-  > a {
+  > a > a {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -15,7 +15,7 @@ const Container = styled.div`
     margin: 10px 0;
   }
 
-  > a > img {
+  > a > a > img {
     max-width: 40px;
     max-height: 40px;
     object-fit: contain;

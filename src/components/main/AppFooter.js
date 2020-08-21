@@ -4,6 +4,7 @@ import Menu from "./Menu";
 import Planets from "./Planets";
 import Episodes from "./Episodes";
 import Home from "./Home";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
   background-color: #000;
@@ -16,9 +17,15 @@ function AppFooter() {
   return (
     <Container>
       <Menu>
-        <Home />
-        <Planets />
-        <Episodes />
+        <Link to="/">
+          <Home />
+        </Link>
+        <Link to="/planets">
+          <Planets />
+        </Link>
+        <Link to="/episodes">
+          <Episodes />
+        </Link>
       </Menu>
     </Container>
   );
