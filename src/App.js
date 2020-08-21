@@ -1,21 +1,11 @@
-import React, { useEffect, useState } from "react";
-import Episodes from "./components/main/Episodes";
-import Home from "./components/main/Home";
-import Input from "./components/main/Input";
-import List from "./components/main/List";
-import ListItem from "./components/main/ListItem";
-import ListItemImg from "./components/main/ListItemImg";
-import ListItemText from "./components/main/ListItemText";
-import Menu from "./components/main/Menu";
-import Planets from "./components/main/Planets";
-import { fetchCharacter, fetchCharacterName } from "./api/rickedApi";
-import ListItemPlanet from "./components/main/ListItemPlanet";
-import LoadingScreen from "./components/loading/Loading";
-import AppHeader from "./components/main/AppHeader";
-import AppMain from "./components/main/AppMain";
+import React from "react";
+import Home from "./pages/Home";
+import Planets from "./pages/Planets";
+import Episodes from "./pages/Episodes";
 import AppFooter from "./components/main/AppFooter";
 import styled from "@emotion/styled";
 import GlobalStyle from "./GlobalStyle";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 const Container = styled.div`
   height: 100vh;
@@ -35,63 +25,25 @@ const Container = styled.div`
 `;
 
 function App() {
-  const [characters, setCharaters] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [query, setQuery] = useState("");
-
-  useEffect(() => {
-    setTimeout(() => {
-      async function fetchData() {
-        setLoading(false);
-        const characterIndex = await fetchCharacter();
-        setCharaters(characterIndex);
-        setLoading(true);
-      }
-      fetchData();
-    }, 2000);
-  }, []);
-
-  let timeOutId;
-
-  function handleChange(input) {
-    setQuery(input);
-    clearTimeout(timeOutId);
-    timeOutId = setTimeout(async () => {
-      const results = await fetchCharacterName(query);
-      setCharaters(results);
-    }, 300);
-  }
-
-  if (loading === false) {
-    return <LoadingScreen />;
-  }
   return (
     <>
       <GlobalStyle />
-      <Container className="app">
-        <AppHeader>
-          <h1>GET RICKED</h1>
-          <Input value={query} handleChange={(value) => handleChange(value)} />
-        </AppHeader>
-        <AppMain>
-          <List>
-            {characters?.map((character) => (
-              <ListItem href={character.href} key={character.id}>
-                <ListItemImg src={character.img} />
-                <ListItemText primary={character.name} />
-                <ListItemPlanet secondary={character.planet} />
-              </ListItem>
-            ))}
-          </List>
-        </AppMain>
-        <AppFooter>
-          <Menu>
-            <Home></Home>
-            <Planets></Planets>
-            <Episodes></Episodes>
-          </Menu>
-        </AppFooter>
-      </Container>
+      <Router>
+        <Container className="app">
+          <Switch>
+            <Route path="/planets">
+              <Planets />
+            </Route>
+            <Route path="/episodes">
+              <Episodes />
+            </Route>
+            <Route exact path="/">
+              <Home />
+            </Route>
+          </Switch>
+          <AppFooter />
+        </Container>
+      </Router>
     </>
   );
 }
