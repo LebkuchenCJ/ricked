@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
-import "./App.css";
-import "./components/main/Input.css";
 import Episodes from "./components/main/Episodes";
 import Home from "./components/main/Home";
-//import Input from "./components/main/Input";
+import Input from "./components/main/Input";
 import List from "./components/main/List";
 import ListItem from "./components/main/ListItem";
 import ListItemImg from "./components/main/ListItemImg";
@@ -13,7 +11,28 @@ import Planets from "./components/main/Planets";
 import { fetchCharacter, fetchCharacterName } from "./api/rickedApi";
 import ListItemPlanet from "./components/main/ListItemPlanet";
 import LoadingScreen from "./components/loading/Loading";
-import searchIconSrc from "./assets/search-24px.svg";
+import AppHeader from "./components/main/AppHeader";
+import AppMain from "./components/main/AppMain";
+import AppFooter from "./components/main/AppFooter";
+import styled from "@emotion/styled";
+import GlobalStyle from "./GlobalStyle";
+
+const Container = styled.div`
+  height: 100vh;
+  width: 60vw;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  background-color: #35c9dd;
+  color: #e5e5e5;
+  margin: 0 auto;
+  border: solid 5px #02afc5;
+  border-radius: 15px;
+
+  @media only screen and (max-width: 600px) {
+    width: 100vw;
+    height: 100vh;
+  }
+`;
 
 function App() {
   const [characters, setCharaters] = useState(null);
@@ -47,42 +66,33 @@ function App() {
     return <LoadingScreen />;
   }
   return (
-    <div className="app">
-      <header className="app__header">
-        <h1>GET RICKED</h1>
-        <div className="searchElement">
-          <input
-            value={query}
-            onChange={(event) => handleChange(event.target.value)}
-            className="searchElement__input"
-            placeholder="Search"
-            type="texts"
-          />
-          <button>
-            <img src={searchIconSrc} alt="Search Icon" />
-          </button>
-        </div>
-        {/* <Input value={query} onChange={handleChange} /> */}
-      </header>
-      <main className="app__main">
-        <List>
-          {characters?.map((character) => (
-            <ListItem href={character.href} key={character.id}>
-              <ListItemImg src={character.img} />
-              <ListItemText primary={character.name} />
-              <ListItemPlanet secondary={character.planet} />
-            </ListItem>
-          ))}
-        </List>
-      </main>
-      <footer className="app__footer">
-        <Menu>
-          <Home></Home>
-          <Planets></Planets>
-          <Episodes></Episodes>
-        </Menu>
-      </footer>
-    </div>
+    <>
+      <GlobalStyle />
+      <Container className="app">
+        <AppHeader>
+          <h1>GET RICKED</h1>
+          <Input value={query} handleChange={(value) => handleChange(value)} />
+        </AppHeader>
+        <AppMain>
+          <List>
+            {characters?.map((character) => (
+              <ListItem href={character.href} key={character.id}>
+                <ListItemImg src={character.img} />
+                <ListItemText primary={character.name} />
+                <ListItemPlanet secondary={character.planet} />
+              </ListItem>
+            ))}
+          </List>
+        </AppMain>
+        <AppFooter>
+          <Menu>
+            <Home></Home>
+            <Planets></Planets>
+            <Episodes></Episodes>
+          </Menu>
+        </AppFooter>
+      </Container>
+    </>
   );
 }
 
