@@ -53,3 +53,23 @@ export async function fetchLocations() {
 
   return locations;
 }
+
+export async function fetchLocationName(query) {
+  const response = await fetch(
+    `https://rickandmortyapi.com/api/location/?name=${query}`
+  );
+  if (!response.ok) {
+    throw new Error("Location doesn´t exist");
+  }
+  const result = await response.json();
+
+  const locations = result.results.map((location) => ({
+    name: location.name,
+    id: location.id,
+    planet: location.type,
+    dimension: location.dimension,
+    img: location.image,
+  }));
+
+  return locations;
+}

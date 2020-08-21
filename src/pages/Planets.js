@@ -1,42 +1,39 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import AppHeader from "../components/main/AppHeader";
-import Input from "../components/main/Input";
+import InputPlanets from "../components/main/InputPlanets";
 import AppMain from "../components/main/AppMain";
 import List from "../components/main/List";
-import ListItem from "../components/main/ListItem";
-import ListItemImg from "../components/main/ListItemImg";
-import ListItemType from "../components/main/ListItemType";
-import { fetchLocations, fetchCharacterName } from "../api/rickedApi";
+import { fetchLocations, fetchLocationName } from "../api/rickedApi";
 import LoadingScreen from "../components/loading/Loading";
-import ListItemDimension from "../components/main/ListItemDimension";
 import { useQuery } from "react-query";
 import PlanetList from "../components/main/PlanetList";
 
 function Planets(props) {
-  //const [locations, setLocation] = useState(null);
-  //const [query, setQuery] = useState("");
-  //const [loading, setLoading] = useState(false);
+  const [locations, setLocation] = useState(null);
+  const [query, setQuery] = useState("");
 
   const { data, status } = useQuery("planets", fetchLocations);
 
   console.log(data);
 
-  //let timeOutId;
+  let timeOutId;
 
-  /*  function handleChange(input) {
+  function handleChange(input) {
     setQuery(input);
     clearTimeout(timeOutId);
     timeOutId = setTimeout(async () => {
-      const results = await fetchCharacterName(query);
+      const results = await fetchLocationName(query);
       setLocation(results);
     }, 300);
-  } */
-
+  }
+  console.log(locations);
   return (
     <>
       <AppHeader>
         <h1>Planets</h1>
-        <Input /* value={query} handleChange={(value) => handleChange(value)} */
+        <InputPlanets
+          value={query}
+          handleChange={(value) => handleChange(value)}
         />
       </AppHeader>
       <AppMain>
