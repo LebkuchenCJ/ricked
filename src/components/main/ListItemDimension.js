@@ -1,7 +1,12 @@
 import React from "react";
 
-function ListItemDimension({ secondary }) {
-  return <p>{secondary}</p>;
+function ListItemDimension({ primary, secondary }) {
+  return (
+    <div>
+      <h4>{primary}</h4>
+      <p>{secondary}</p>
+    </div>
+  );
 }
 
 export default ListItemDimension;

@@ -52,8 +52,10 @@ function Planets(props) {
           {locations?.map((location) => (
             <ListItem href={location.href} key={location.id}>
               <ListItemImg />
-              <ListItemText primary={location.name} />
-              <ListItemDimension secondary={location.planet} />
+              <ListItemDimension
+                primary={location.name}
+                secondary={location.planet}
+              />
               <ListItemType type={location.dimension} />
             </ListItem>
           ))}
