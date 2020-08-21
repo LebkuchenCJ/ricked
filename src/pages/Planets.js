@@ -6,9 +6,10 @@ import List from "../components/main/List";
 import ListItem from "../components/main/ListItem";
 import ListItemImg from "../components/main/ListItemImg";
 import ListItemText from "../components/main/ListItemText";
-import ListItemPlanet from "../components/main/ListItemPlanet";
+import ListItemType from "../components/main/ListItemType";
 import { fetchLocations, fetchCharacterName } from "../api/rickedApi";
 import LoadingScreen from "../components/loading/Loading";
+import ListItemDimension from "../components/main/ListItemDimension";
 
 function Planets(props) {
   const [locations, setLocation] = useState(null);
@@ -50,9 +51,10 @@ function Planets(props) {
         <List>
           {locations?.map((location) => (
             <ListItem href={location.href} key={location.id}>
-              <ListItemImg src={location.img} />
+              <ListItemImg />
               <ListItemText primary={location.name} />
-              <ListItemPlanet secondary={location.planet} />
+              <ListItemDimension secondary={location.planet} />
+              <ListItemType type={location.dimension} />
             </ListItem>
           ))}
         </List>
