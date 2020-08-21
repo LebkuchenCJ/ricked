@@ -1,5 +1,10 @@
 import React from "react";
 import styled from "@emotion/styled";
+import Menu from "./Menu";
+import Planets from "./Planets";
+import Episodes from "./Episodes";
+import Home from "./Home";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
   background-color: #000;
@@ -8,8 +13,22 @@ const Container = styled.div`
   border-radius: 20px 20px 10px 10px;
 `;
 
-function AppFooter({ children }) {
-  return <Container>{children}</Container>;
+function AppFooter() {
+  return (
+    <Container>
+      <Menu>
+        <Link to="/">
+          <Home />
+        </Link>
+        <Link to="/planets">
+          <Planets />
+        </Link>
+        <Link to="/episodes">
+          <Episodes />
+        </Link>
+      </Menu>
+    </Container>
+  );
 }
 
 export default AppFooter;
