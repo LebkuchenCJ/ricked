@@ -1,3 +1,26 @@
+export async function fetchRandomCharacter() {
+  const number = () => {
+    return Math.floor(Math.random() * (671 - 1)) + 1;
+  };
+  const num = number();
+  const response = await fetch(
+    `https://rickandmortyapi.com/api/character/${num}`
+  );
+  if (!response.ok) {
+    throw new Error(response);
+  }
+  const result = await response.json();
+
+  const characters = result.results.map((character) => ({
+    name: character.name,
+    id: character.id,
+    planet: character.origin.name,
+    status: character.status,
+    img: character.image,
+  }));
+
+  return characters;
+}
 export async function fetchCharacter() {
   const response = await fetch(`https://rickandmortyapi.com/api/character`);
   if (!response.ok) {
