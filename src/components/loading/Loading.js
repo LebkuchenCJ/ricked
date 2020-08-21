@@ -14,6 +14,14 @@ const Container = styled.div`
   -webkit-text-stroke: 0.5px #000;
   text-shadow: -2px 0 rgb(162, 206, 71), 0 2px rgb(162, 206, 71),
     2px 0 rgb(162, 206, 71), 0 -2px rgb(162, 206, 71);
+  background-image: linear-gradient(
+    to right top,
+    #02afc5,
+    #49c0d2,
+    #6dd1e0,
+    #8ce2ee,
+    #a9f3fd
+  );
   font-weight: bolder;
   font-size: 2rem;
   position: relative;
