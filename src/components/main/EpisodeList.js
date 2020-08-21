@@ -1,5 +1,5 @@
 import React from "react";
-import episodeSrc from "../../assets/film.svg";
+import episodeSrc from "../../assets/movies.svg";
 import styled from "@emotion/styled";
 
 const Container = styled.div`

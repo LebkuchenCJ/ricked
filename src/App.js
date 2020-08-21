@@ -1,6 +1,7 @@
 import React from "react";
 import Home from "./pages/Home";
 import Planets from "./pages/Planets";
+import Characters from "./pages/Characters";
 import Episodes from "./pages/Episodes";
 import AppFooter from "./components/main/AppFooter";
 import styled from "@emotion/styled";
@@ -31,6 +32,9 @@ function App() {
       <Router>
         <Container className="app">
           <Switch>
+            <Route path="/characters">
+              <Characters />
+            </Route>
             <Route path="/planets">
               <Planets />
             </Route>

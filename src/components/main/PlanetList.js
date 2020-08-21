@@ -1,5 +1,5 @@
 import React from "react";
-import planetSrc from "../../assets/planet.svg";
+import planetSrc from "../../assets/planets.svg";
 import styled from "@emotion/styled";
 
 const Container = styled.div`
