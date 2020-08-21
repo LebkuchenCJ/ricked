@@ -3,7 +3,15 @@ import portalSrc from "../../assets/portal.gif";
 import mortySrc from "../../assets/morty.png";
 import styled from "@emotion/styled";
 
+import schwiftSrc from "../../assets/get_schwifty.ttf";
+
 const Container = styled.div`
+
+@font-face {
+          font-family: "schwifty";
+        src: url("${schwiftSrc}");
+        }
+
   height: 100vh;
   width: 100vw;
   display: flex;
