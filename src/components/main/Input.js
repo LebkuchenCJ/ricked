@@ -30,13 +30,12 @@ const Container = styled.div`
   }
 `;
 
-function Input(/* { query, handleChange } */) {
+function Input({ query, handleChange }) {
   return (
     <Container>
       <input
-        /* value={query}
-        onChange={(event) => handleChange(event.target.value)} */
-
+        value={query}
+        onChange={(event) => handleChange(event.target.value)}
         placeholder="Search"
         type="texts"
       />

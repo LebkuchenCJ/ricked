@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
-import "./components/main/Input.css";
 import Episodes from "./components/main/Episodes";
 import Home from "./components/main/Home";
-//import Input from "./components/main/Input";
+import Input from "./components/main/Input";
 import List from "./components/main/List";
 import ListItem from "./components/main/ListItem";
 import ListItemImg from "./components/main/ListItemImg";
@@ -12,7 +11,6 @@ import Planets from "./components/main/Planets";
 import { fetchCharacter, fetchCharacterName } from "./api/rickedApi";
 import ListItemPlanet from "./components/main/ListItemPlanet";
 import LoadingScreen from "./components/loading/Loading";
-import searchIconSrc from "./assets/search-24px.svg";
 import AppHeader from "./components/main/AppHeader";
 import AppMain from "./components/main/AppMain";
 import AppFooter from "./components/main/AppFooter";
@@ -73,19 +71,7 @@ function App() {
       <Container className="app">
         <AppHeader>
           <h1>GET RICKED</h1>
-          <div className="searchElement">
-            <input
-              value={query}
-              onChange={(event) => handleChange(event.target.value)}
-              className="searchElement__input"
-              placeholder="Search"
-              type="texts"
-            />
-            <button>
-              <img src={searchIconSrc} alt="Search Icon" />
-            </button>
-          </div>
-          {/* <Input value={query} onChange={handleChange} /> */}
+          <Input value={query} handleChange={(value) => handleChange(value)} />
         </AppHeader>
         <AppMain>
           <List>
