@@ -14,6 +14,7 @@ import { fetchCharacter, fetchCharacterName } from "./api/rickedApi";
 import ListItemPlanet from "./components/main/ListItemPlanet";
 import LoadingScreen from "./components/loading/Loading";
 import searchIconSrc from "./assets/search-24px.svg";
+import AppHeader from "./components/main/AppHeader";
 
 function App() {
   const [characters, setCharaters] = useState(null);
@@ -48,7 +49,7 @@ function App() {
   }
   return (
     <div className="app">
-      <header className="app__header">
+      <AppHeader>
         <h1>GET RICKED</h1>
         <div className="searchElement">
           <input
@@ -63,7 +64,7 @@ function App() {
           </button>
         </div>
         {/* <Input value={query} onChange={handleChange} /> */}
-      </header>
+      </AppHeader>
       <main className="app__main">
         <List>
           {characters?.map((character) => (
