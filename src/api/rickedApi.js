@@ -86,7 +86,7 @@ export async function fetchEpisodes() {
     id: episode.id,
     air_date: episode.air_date,
     episode: episode.episode,
-    characters: episode.characters.name,
+    characters: episode.characters,
   }));
 
   return episodes;

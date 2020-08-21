@@ -11,12 +11,10 @@ import EpisodeList from "../components/main/EpisodeList";
 function Episodes(props) {
   const { data, status } = useQuery("episodes", fetchEpisodes);
 
-  console.log(data);
-
   return (
     <>
       <AppHeader>
-        <h1>Planets</h1>
+        <h1>Epsiodes</h1>
         <InputPlanets
         /*  value={query}
           handleChange={(value) => handleChange(value)} */
