@@ -8,12 +8,6 @@ const Container = styled.div`
   display: flex;
   justify-content: space-between;
 
-  /* @media only screen and (max-width: 600px) {
-  .searchElement {
-    width: 100%;
-  }
-} */
-
   > button {
     background: transparent;
     border: none;
