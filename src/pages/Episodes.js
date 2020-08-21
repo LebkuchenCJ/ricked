@@ -4,9 +4,9 @@ import InputPlanets from "../components/main/InputPlanets";
 import AppMain from "../components/main/AppMain";
 import List from "../components/main/List";
 import LoadingScreen from "../components/loading/Loading";
-import PlanetList from "../components/main/PlanetList";
 import { useQuery } from "react-query";
 import { fetchEpisodes } from "../api/rickedApi";
+import EpisodeList from "../components/main/EpisodeList";
 
 function Episodes(props) {
   const { data, status } = useQuery("episodes", fetchEpisodes);
@@ -28,8 +28,8 @@ function Episodes(props) {
           {status === "error" && <div>Error</div>}
           {status === "success" && (
             <>
-              {data.map((location) => (
-                <PlanetList key={location.name} planet={location} />
+              {data.map((episode) => (
+                <EpisodeList key={episode.name} episode={episode} />
               ))}
             </>
           )}
