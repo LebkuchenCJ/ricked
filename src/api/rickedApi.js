@@ -106,3 +106,23 @@ export async function fetchEpisodes() {
 
   return episodes;
 }
+
+export async function fetchEpisodeName(query) {
+  const response = await fetch(
+    `https://rickandmortyapi.com/api/episode/?name=${query}`
+  );
+  if (!response.ok) {
+    throw new Error("Location doesn´t exist");
+  }
+  const result = await response.json();
+
+  const episodes = result.results.map((episode) => ({
+    name: episode.name,
+    id: episode.id,
+    air_date: episode.air_date,
+    episode: episode.episode,
+    characters: episode.characters,
+  }));
+
+  return episodes;
+}

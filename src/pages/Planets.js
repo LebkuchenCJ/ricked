@@ -8,11 +8,11 @@ import LoadingScreen from "../components/loading/Loading";
 import { useQuery } from "react-query";
 import PlanetList from "../components/main/PlanetList";
 
-function Planets(props) {
+function Planets() {
   const [locations, setLocation] = useState(null);
   const [query, setQuery] = useState("");
 
-  const { data, status } = useQuery("planets", fetchLocations);
+  let { data, status } = useQuery("planets", fetchLocations);
 
   let timeOutId;
 
@@ -24,6 +24,11 @@ function Planets(props) {
       setLocation(results);
     }, 300);
   }
+
+  if (locations != null) {
+    data = locations;
+  }
+
   return (
     <>
       <AppHeader>
