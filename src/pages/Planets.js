@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import AppHeader from "../components/main/AppHeader";
 import InputPlanets from "../components/main/InputPlanets";
 import AppMain from "../components/main/AppMain";
@@ -8,7 +8,7 @@ import LoadingScreen from "../components/loading/Loading";
 import { useQuery } from "react-query";
 import PlanetList from "../components/main/PlanetList";
 
-function Planets(props) {
+function Planets() {
   const [locations, setLocation] = useState(null);
   const [query, setQuery] = useState("");
 
