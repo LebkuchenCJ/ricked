@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import AppHeader from "../components/main/AppHeader";
 import InputPlanets from "../components/main/InputPlanets";
 import AppMain from "../components/main/AppMain";
@@ -12,7 +12,7 @@ function Planets(props) {
   const [locations, setLocation] = useState(null);
   const [query, setQuery] = useState("");
 
-  const { data, status } = useQuery("planets", fetchLocations);
+  let { data, status } = useQuery("planets", fetchLocations);
 
   let timeOutId;
 
@@ -24,6 +24,11 @@ function Planets(props) {
       setLocation(results);
     }, 300);
   }
+
+  if (locations != null) {
+    data = locations;
+  }
+
   return (
     <>
       <AppHeader>
