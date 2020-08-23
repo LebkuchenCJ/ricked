@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import AppHeader from "../components/main/AppHeader";
 import Input from "../components/main/Input";
 import AppMain from "../components/main/AppMain";
